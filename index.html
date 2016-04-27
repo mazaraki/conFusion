@@ -9,10 +9,10 @@
          content must come *after* these tags -->
     <title>Ristorante Con Fusion</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
     <link href="css/mystyles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -61,7 +61,7 @@
                 <!-- modal addition -->
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                       <a data-toggle="modal" data-target="#loginModal">
+                       <a>
                            <span class="glyphicon glyphicon-log-in"></span> Login
                        </a> 
                     </li>
@@ -206,7 +206,7 @@
                     <p style="padding: 40px;"></p>
                    
                    <!-- @boo: removed tooltip. added modal: Assignment 3 Task1 -->
-                    <a type="button" class="btn btn-warning btn-block" data-toggle="modal" href="#reserveModal">Reserve Table</a>
+                    <a type="button" class="btn btn-warning btn-block" href="#reserveModal">Reserve Table</a>
                 </div>
             </div>
             <!-- @boo 3Assignment task 2: Remove form. remove row content. turn it into a modal. -->
@@ -264,6 +264,15 @@
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                    <!-- carousel control buttons -exercise 1 JQuery -->
+                    <div class="btn-group" id="carouselButtons">
+                        <button class="btn btn-danger btn-xs" id="carousel-pause">
+                            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+                        </button>
+                        <button class="btn btn-danger btn-xs" id="carousel-play">
+                            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div> <!-- end of carousel -->
@@ -385,9 +394,12 @@
 
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- my script -->
     <!-- @boo: removed. 3rd assignment.
     <script type="text/javascript">
@@ -395,6 +407,17 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#mycarousel").carousel( { interval: 5000 } );
+            $("mycarousel-pause").click(function(){
+                $("#mycarousel").carousel('pause');
+            });
+            $("#mycarousel-play").click(function(){
+                $("mycarousel").carousel('cycle');
+            });
+        });
+    </script>
 </body>
 
 </html>
