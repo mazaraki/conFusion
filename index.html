@@ -61,7 +61,7 @@
                 <!-- modal addition -->
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                       <a>
+                       <a id="loginBtn">
                            <span class="glyphicon glyphicon-log-in"></span> Login
                        </a> 
                     </li>
@@ -206,7 +206,7 @@
                     <p style="padding: 40px;"></p>
                    
                    <!-- @boo: removed tooltip. added modal: Assignment 3 Task1 -->
-                    <a type="button" class="btn btn-warning btn-block" href="#reserveModal">Reserve Table</a>
+                    <a type="button" role="button" class="btn btn-warning btn-block" id="reserveBtn" href="#reserveModal">Reserve Table</a>
                 </div>
             </div>
             <!-- @boo 3Assignment task 2: Remove form. remove row content. turn it into a modal. -->
@@ -410,13 +410,23 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#mycarousel").carousel( { interval: 5000 } );
-            $("mycarousel-pause").click(function(){
+            $("#mycarousel-pause").click(function(){
                 $("#mycarousel").carousel('pause');
             });
             $("#mycarousel-play").click(function(){
-                $("mycarousel").carousel('cycle');
+                $("#mycarousel").carousel('cycle');
             });
         });
+
+        //last assignment
+        $("#reserveBtn").click(function(){
+            $("#reserveModal").modal('show');
+        });
+
+        $("#loginBtn").click(function(){
+            $("#loginModal").modal('show');
+        });
+
     </script>
 </body>
 
